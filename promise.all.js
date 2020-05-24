@@ -53,3 +53,17 @@ Promise.all([askFirstDealer().catch(error  => {return error}),
 })
 
 
+
+Promise.all([askFirstDealer().catch(error  => {return error}), 
+    askSecondDealer().catch(error => {return error}), 
+    askThirdDealer().catch(error  => {return error}), 
+    askForthDealer().catch(error  => {return error}),
+    Promise.reject('Rejected for some reason')
+   ])
+.then(prices => {
+console.log("Array of Promises4 - With one failed call &  (Success): ", prices);
+})
+.catch(error => {                                                                 
+console.log("Array of Promises4 - With one failed call (Failure): ", error);   
+})
+
